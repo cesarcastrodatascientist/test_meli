@@ -129,10 +129,10 @@ class FeatureEngineering:
 
             # Pearson
             pearson_corr, pearson_p = pearsonr(x, y)
-            pearson_sig = "Sí" if pearson_p < 0.05 else "No"
+            pearson_sig = "Sí" if abs(pearson_corr) > 0.75 else "No"
             # Spearman
             spearman_corr, spearman_p = spearmanr(x, y)
-            spearman_sig = "Sí" if spearman_p < 0.05 else "No"
+            spearman_sig = "Sí" if abs(spearman_corr) > 0.75 else "No"
             if (pearson_sig=='No') & (spearman_sig == 'No'):
                 drop_columns.append(i)
             salida_cor[i] = {
